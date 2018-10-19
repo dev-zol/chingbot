@@ -1,1 +1,2 @@
-config.json
+### Just don't write anything in JSON ###
+*.json
