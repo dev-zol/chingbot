@@ -35,7 +35,6 @@ module.exports = {
         const chance = parseInt(Math.random() * 16);
 
         for(const question in questions) {
-            console.log(question)
             if(args[0] === questions[question]) {
                 message.channel.send(answers[chance]);
             } else {
