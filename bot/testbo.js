@@ -1,7 +1,9 @@
+/** VERY IMPORTANT */
 const fs = require('fs');
 const Discord = require('discord.js');
 const { token, prefix } = require('./config.json')
 
+/** make a client */
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -39,7 +41,7 @@ client.on('message', message => {
       message.reply('there was an error trying to execute that command!');
     }
   }
-  
+
   //obligatory no u
   if (message.content === 'no u') {
     message.channel.send('no u');
