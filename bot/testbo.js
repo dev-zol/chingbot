@@ -50,7 +50,7 @@ client.on('message', message => {
 
 });
 
-
-
+//exports the client reference in case any other modules need it (like ?ping)
+exports.clientRef = client
 
 client.login(token);
