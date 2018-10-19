@@ -37,11 +37,10 @@ module.exports = {
         for(const question in questions) {
             if(args[0] === questions[question]) {
                 message.channel.send(answers[chance]);
-            } else {
-                message.channel.send('retardo, that\'s not a good question');
                 return;
             }
         }
+        message.channel.send('idiot, ask a real question');
     }
 }
 
