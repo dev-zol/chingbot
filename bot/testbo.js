@@ -18,22 +18,26 @@ client.on('ready', () => {
 
 client.on('message', message => {
   if (message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+
+  if (message.content.startsWith(prefix)) {
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    if (!client.commands.has(command)) return;
+
+    try {
+      client.commands.get(command).execute(message, args);
+    }
+    catch (error) {
+      console.error(error);
+      message.reply('there was an error trying to execute that command!');
+    }
+  }
 
   if (message.content === 'no u') {
-     message.channel.send('no u');
+    message.channel.send('no u');
   }
 
-  if (!client.commands.has(command)) return;
-
-  try {
-    client.commands.get(command).execute(message, args);
-  }
-  catch (error) {
-    console.error(error);
-    message.reply('there was an error trying to execute that command!');
-  }
 
 });
 
