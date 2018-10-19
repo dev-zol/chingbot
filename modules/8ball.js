@@ -40,6 +40,7 @@ module.exports = {
                 message.channel.send(answers[chance]);
             } else {
                 message.channel.send('retardo, that\'s not a good question');
+                return;
             }
         }
     }
