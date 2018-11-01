@@ -43,10 +43,38 @@ client.on('message', message => {
   }
 
   //obligatory no u
-  if (message.content === 'no u') {
-    message.channel.send('no u');
+  if (message.content.match(/no u/gi)!=null) {
+	const tempNoU=message.content.toLowerCase();
+	var response="";
+	var userNameFun=""
+	var realFlag=0;
+	if(tempNoU.length==4){
+    	response='no u';
+    	realFlag=1;
+	}else if (tempNoU === 'no no u') {
+  		response='no u infinity';
+  		realFlag=1;
+  	}else if (tempNoU === 'no u infinity') {
+    	response='no u cheater';
+    	realFlag=1;
+  	}
+  	if(message.author.username.toLowerCase()=="willofhope"){
+		userNameFun='rock';
+	}else if(message.author.username.toLowerCase()=="unholy"){
+		userNameFun='lizard';
+	}else if(message.author.username.toLowerCase()=="ringalive"){
+		userNameFun='bird';
+	}else if(message.author.username=="lol"){
+		userNameFun='chong';
+	}
+	if(realFlag==1){
+		if(userNameFun==""){
+			message.channel.send(response);
+		}else{
+			message.channel.send(response+", "+userNameFun);
+		}
+	}
   }
-
 
 });
 
