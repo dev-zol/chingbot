@@ -11,7 +11,8 @@ module.exports = {
             'do',
             'can',
             'as',
-            'are'
+            'are',
+			'was'
         ];
 
         const answers = [
@@ -32,7 +33,7 @@ module.exports = {
             'definitely.not',
             'no, kys yourself'
         ];
-        const chance = parseInt(Math.random() * 16);
+        const chance = parseInt(Math.random() * answers.length);
 
         for(const question in questions) {
             if(args[0] === questions[question]) {
