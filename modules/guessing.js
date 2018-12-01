@@ -7,7 +7,7 @@ module.exports = {
     execute(message, args) {
         if (args[0] >= 1 && args[0] <= 100) {
             console.log(args[0]);
-            let a = parseFloat(args[0]);
+            let a = Math.round(parseFloat(args[0]));
             let g = Math.floor(Math.random() * 100) + 1;
             let guessed = false;
             let i = 1;
@@ -18,6 +18,7 @@ module.exports = {
                     for (l in gg) {
                         string += gg[l] + " , ";
                     }
+                    string += "and " + a + ".";
                     guessed = true;
                     message.channel.send("I guessed " + string);
                     message.channel.send("I guessed " + g + " after " + i + " time(s)!");
